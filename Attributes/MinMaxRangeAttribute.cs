@@ -67,6 +67,101 @@ namespace MyBox
 		{
 			return Mathf.LerpUnclamped(ranged.Min, ranged.Max, t);
 		}
+
+		/// <summary>
+		/// Returns <c>true</c> if closed inteval defined by <see cref="RangedFloat"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>Closed interval means that bounds values belong into the inteval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool CloseContains(this RangedFloat interval, float value)
+		{
+			return interval.Min <= value && value <= interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if open inteval defined by <see cref="RangedFloat"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>Open interval means that bounds values do NOT belong into the inteval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool OpenContains(this RangedFloat interval, float value)
+		{
+			return interval.Min < value && value < interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if left-open inteval defined by <see cref="RangedFloat"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>left-open interval means that left bound do NOT belong into interval and right bound DO belong into interval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool LeftOpenContains(this RangedFloat interval, float value)
+		{
+			return interval.Min < value && value <= interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if right-open inteval defined by <see cref="RangedFloat"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>right-open interval means that left bound DO belong into interval and right bound do NOT belong into interval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool RightOpenContains(this RangedFloat interval, float value)
+		{
+			return interval.Min <= value && value < interval.Max;
+		}
+		/// <summary>
+		/// Returns <c>true</c> if closed inteval defined by <see cref="RangedInt"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>Closed interval means that bounds values belong into the inteval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool CloseContains(this RangedInt interval, int value)
+		{
+			return interval.Min <= value && value <= interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if open inteval defined by <see cref="RangedInt"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>Open interval means that bounds values do NOT belong into the inteval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool OpenContains(this RangedInt interval, int value)
+		{
+			return interval.Min < value && value < interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if left-open inteval defined by <see cref="RangedInt"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>left-open interval means that left bound do NOT belong into interval and right bound DO belong into interval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool LeftOpenContains(this RangedInt interval, int value)
+		{
+			return interval.Min < value && value <= interval.Max;
+		}
+
+		/// <summary>
+		/// Returns <c>true</c> if right-open inteval defined by <see cref="RangedInt"/> <paramref name="interval"/> contains specified <paramref name="value"/>
+		/// </summary>
+		/// <remarks>right-open interval means that left bound DO belong into interval and right bound do NOT belong into interval</remarks>
+		/// <param name="interval">Base interval</param>
+		/// <param name="value">Value to be tested</param>
+		/// <returns></returns>
+		public static bool RightOpenContains(this RangedInt interval, int value)
+		{
+			return interval.Min <= value && value < interval.Max;
+		}
 	}
 }
 
